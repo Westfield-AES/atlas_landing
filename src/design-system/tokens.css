@@ -1,0 +1,48 @@
+:root {
+  --color-background: #f5f8f7;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #edf3f1;
+  --color-surface-raised: #ffffff;
+  --color-text: #13201d;
+  --color-text-muted: #53645e;
+  --color-text-subtle: #6b7b75;
+  --color-border: #d5e0dc;
+  --color-border-strong: #aabAb4;
+  --color-primary: #0b5d50;
+  --color-primary-hover: #084a40;
+  --color-primary-subtle: #ddf2ed;
+  --color-on-primary: #ffffff;
+  --color-accent: #935118;
+  --color-accent-subtle: #f8e9d9;
+  --color-info: #1558a6;
+  --color-success: #146c43;
+  --color-warning: #8a4b08;
+  --color-danger: #b3261e;
+  --color-focus: #247dce;
+  --color-dark-surface: #0c241f;
+  --color-dark-surface-raised: #12342d;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --radius-sm: 0.25rem;
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-panel: 1rem;
+  --shadow-card: 0 18px 50px rgba(11, 42, 34, 0.08);
+  --shadow-raised: 0 28px 80px rgba(4, 29, 23, 0.14);
+  --content-wide: 80rem;
+  --content-reading: 45rem;
+  --motion-fast: 120ms ease-out;
+  --motion-normal: 180ms ease-out;
+}
