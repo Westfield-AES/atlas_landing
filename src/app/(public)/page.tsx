@@ -235,10 +235,10 @@ export default function HomePage() {
               Atlas is preparing its first collection of businesses and investors. We’re starting small so
               every profile is useful, every detail is clear, and every introduction has a reason behind it.
             </p>
-            <div className="atlas-closing__actions">
+            {/* <div className="atlas-closing__actions">
               <ButtonLink href={ATLAS_APP_PLACEHOLDER} variant="inverse">Explore Atlas <ArrowIcon /></ButtonLink>
               <ButtonLink href={ATLAS_APP_PLACEHOLDER} variant="secondary">Private beta access</ButtonLink>
-            </div>
+            </div> */}
           </div>
           <p className="atlas-closing__note">
             Atlas gives both sides the context and connection. Every conversation and decision stays in

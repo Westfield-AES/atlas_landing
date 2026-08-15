@@ -26,13 +26,13 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner page-shell">
         <BrandLogo priority variant="inverse" />
-        <nav aria-label="Primary navigation" className="site-header__nav">
+        {/* <nav aria-label="Primary navigation" className="site-header__nav">
           <NavigationLinks />
-        </nav>
+        </nav> */}
         <div className="site-header__actions">
-          <Link className="text-link text-link--quiet desktop-sign-in" href={ATLAS_APP_PLACEHOLDER}>
+          {/* <Link className="text-link text-link--quiet desktop-sign-in" href={ATLAS_APP_PLACEHOLDER}>
             Sign in
-          </Link>
+          </Link> */}
           <ButtonLink className="header-cta" href={ATLAS_APP_PLACEHOLDER} variant="primary">
             Explore Atlas <span aria-hidden="true">↗</span>
           </ButtonLink>
