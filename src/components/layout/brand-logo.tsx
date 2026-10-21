@@ -17,7 +17,7 @@ export function BrandLogo({
       <Image
         alt="Atlas"
         fill
-        priority={priority}
+        preload={priority}
         sizes="120px"
         src={`/brand/atlas-logo-${variant}.png`}
       />

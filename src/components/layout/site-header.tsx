@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ArrowUpRightIcon } from "@/components/icons/arrow-up-right-icon";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ATLAS_APP_PLACEHOLDER } from "@/lib/links";
 
@@ -7,10 +8,9 @@ import { BrandLogo } from "./brand-logo";
 import { MobileNavigation } from "./mobile-navigation";
 
 const primaryNavigation = [
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/#trust", label: "What you’ll see" },
-  { href: "/#for-investors", label: "For investors" },
   { href: "/#for-businesses", label: "For businesses" },
+  { href: "/#discover", label: "For investors" },
+  { href: "/#how-it-works", label: "How it works" },
 ];
 
 function NavigationLinks() {
@@ -25,16 +25,17 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner page-shell">
-        <BrandLogo priority variant="inverse" />
-        {/* <nav aria-label="Primary navigation" className="site-header__nav">
+        <BrandLogo priority />
+        <nav aria-label="Primary navigation" className="site-header__nav">
           <NavigationLinks />
-        </nav> */}
+        </nav>
         <div className="site-header__actions">
-          {/* <Link className="text-link text-link--quiet desktop-sign-in" href={ATLAS_APP_PLACEHOLDER}>
-            Sign in
-          </Link> */}
-          <ButtonLink className="header-cta" href={ATLAS_APP_PLACEHOLDER} variant="primary">
-            Explore Atlas <span aria-hidden="true">↗</span>
+          <ButtonLink
+            className="header-cta"
+            href={ATLAS_APP_PLACEHOLDER}
+            variant="primary"
+          >
+            Private beta <ArrowUpRightIcon />
           </ButtonLink>
           <MobileNavigation items={primaryNavigation} />
         </div>

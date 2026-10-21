@@ -1,249 +1,312 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { ArrowIcon } from "@/components/icons/arrow-icon";
 import { CheckIcon } from "@/components/icons/check-icon";
+import { DiscoveryExplorer } from "@/components/landing/discovery-explorer";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ATLAS_APP_PLACEHOLDER } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Discover businesses raising across Africa",
+  title: "Where African businesses and investors connect",
   description:
-    "Atlas helps investors discover African businesses that are raising, understand the important details, and start better conversations.",
+    "Atlas is a marketplace where African businesses gain visibility and investors discover businesses. Showcase your business, explore profiles, and connect.",
 };
 
-const journeySteps = [
+const steps = [
   {
-    number: "01",
-    label: "Discover",
-    title: "Start with what matters to you.",
-    body: "Browse by market, sector, stage, and investment range. Atlas keeps the focus on businesses that have recently confirmed they’re raising.",
-    detail: "A focused place to begin",
+    title: "Businesses create a profile.",
+    body: "Present your business, team, progress, and fundraising plans. Once reviewed, your profile gives investors a place to discover what you’re building.",
   },
   {
-    number: "02",
-    label: "Understand",
-    title: "Get the story without the scavenger hunt.",
-    body: "See what the business does, who is behind it, the numbers that matter, and which details Atlas has checked, all in one clear profile.",
-    detail: "The important details together",
+    title: "Investors discover businesses.",
+    body: "Explore businesses by sector and revenue stage. Review their profiles, capital needs, and dated checks to find businesses relevant to your investment focus.",
   },
   {
-    number: "03",
-    label: "Connect",
-    title: "Reach out with a reason.",
-    body: "Send a short introduction request when a business catches your eye. If they’re interested too, Atlas helps both sides connect.",
-    detail: "A warmer way to meet",
+    title: "Both sides choose to connect.",
+    body: "Investors request an introduction. The business can accept or decline. Professional contact details are shared only after both sides agree.",
   },
 ];
 
-const clarityPoints = [
+const questions = [
   {
-    title: "Fresh when it matters",
-    body: "Raising status and key dates stay visible, so you know how current a profile is.",
+    title: "Who is Atlas for?",
+    answer:
+      "Atlas is a marketplace for African businesses looking for visibility with investors, and for investors looking for businesses to explore. Businesses showcase their work and capital needs; investors discover profiles and request introductions.",
   },
   {
-    title: "Clear about what was checked",
-    body: "Atlas names the exact detail that was reviewed and when the check took place.",
+    title: "How can I showcase my business on Atlas?",
+    answer:
+      "Create a profile covering what your business does, your team, your progress, and your fundraising plans. Profiles are reviewed before appearing in discovery. You choose who can see sensitive information and which introduction requests to accept. Business listing is not available on this website yet.",
   },
   {
-    title: "Made for local markets",
-    body: "Currencies, business details, and market context are handled country by country.",
+    title: "Where is Atlas launching?",
+    answer:
+      "The first private beta focuses on Nigerian businesses. Business participation in other African markets will depend on future country launches.",
+  },
+  {
+    title: "What does a profile check mean?",
+    answer:
+      "A check applies to a specific fact, such as business registration or fundraising status. Atlas shows what was checked and when. Business-provided information is distinct from checked facts. A check is not an endorsement or a substitute for your own due diligence.",
+  },
+  {
+    title: "How do introductions work?",
+    answer:
+      "An investor sends a request explaining why they want to connect. The business can accept or decline. Only the professional contact details both sides agree to share are released after acceptance. Further conversations take place outside Atlas.",
+  },
+  {
+    title: "Can I invest through Atlas?",
+    answer:
+      "No. Atlas supports business discovery and professional introductions. It does not recommend investments or process investment transactions. Investors conduct their own due diligence; negotiations, agreements, and money transfers take place outside Atlas.",
+  },
+  {
+    title: "Can I join Atlas today?",
+    answer:
+      "Atlas is preparing a Nigeria private beta for businesses and invited investors. Business listing and account registration are not available on this website yet. Explore the sample profiles to see how businesses can present themselves and how investors can discover them.",
   },
 ];
 
 export default function HomePage() {
   return (
-    <div className="atlas-home">
-      <section className="atlas-hero">
-        <div className="page-shell atlas-hero__shell">
-          <div className="atlas-hero__grid">
-            <div className="atlas-hero__copy">
-              <p className="atlas-kicker">Better discovery starts with better context</p>
-              <h1>
-                <span>Find the businesses</span>
-                <span>shaping what’s next.</span>
-                <em>Across Africa.</em>
-              </h1>
-              <p className="atlas-hero__lead">
-                Atlas brings together African businesses raising capital and investors looking for their
-                next opportunity, with clear profiles, up-to-date details, and thoughtful introductions.
-              </p>
-              <div className="atlas-hero__actions">
-                <ButtonLink href={ATLAS_APP_PLACEHOLDER}>Explore Atlas <ArrowIcon /></ButtonLink>
-                <ButtonLink href="#for-businesses" variant="secondary">Showcase your business</ButtonLink>
-              </div>
-            </div>
-
-            <div className="atlas-preview" aria-label="Illustration of an Atlas business profile">
-              <div className="atlas-preview__topline">
-                <span>Atlas profile preview</span>
-                <span>Clear at a glance</span>
-              </div>
-              <div className="atlas-preview__heading">
-                <div className="atlas-preview__mark" aria-hidden="true"><span /></div>
-                <div>
-                  <p>Business snapshot</p>
-                  <h2>A business worth a closer look</h2>
-                </div>
-                <span className="atlas-preview__status"><i /> Raising now</span>
-              </div>
-              <p className="atlas-preview__summary">
-                What the business is building, who it serves, where it operates, and what it plans to do next.
-              </p>
-              <dl className="atlas-preview__facts">
-                <div><dt>Market</dt><dd>Fits your focus</dd></div>
-                <div><dt>Sector</dt><dd>Worth exploring</dd></div>
-                <div><dt>Stage</dt><dd>In your range</dd></div>
-              </dl>
-              <div className="atlas-preview__checks">
-                <div><CheckIcon /><span>Raising status</span><strong>Recently confirmed</strong></div>
-                <div><CheckIcon /><span>Registration details</span><strong>Checked + dated</strong></div>
-              </div>
-              <div className="atlas-preview__match">
-                <span>Why it’s here</span>
-                <p>It fits the markets, sectors, and stages you want to explore.</p>
-              </div>
-            </div>
+    <div className="atlas-home" id="top">
+      <section
+        className="welcome-section page-shell"
+        aria-labelledby="hero-title"
+      >
+        <p className="section-label welcome-label">
+          <span className="status-dot" /> A marketplace for businesses and
+          investors
+        </p>
+        <div className="welcome-layout">
+          <h1 id="hero-title">
+            Where businesses
+            <br />
+            meet investors.
+          </h1>
+          <div className="welcome-copy">
+            <p className="welcome-description">
+              Put your business in front of investors, or discover businesses
+              that fit your investment focus. Atlas brings both sides together
+              through business profiles and introductions.
+            </p>
           </div>
-
-          <div className="atlas-hero__foot">
-            <p>Current fundraising profiles</p>
-            <p>Useful details in one place</p>
-            <p>Introductions with context</p>
-            <a href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+          <div className="welcome-actions">
+            <ButtonLink href="#for-businesses">
+              Showcase your business <ArrowIcon />
+            </ButtonLink>
+            <ButtonLink href="#discover">
+              Discover businesses <ArrowIcon />
+            </ButtonLink>
           </div>
+        </div>
+        <figure className="welcome-image">
+          <Image
+            src="/images/cape-town.webp"
+            alt="Cape Town’s businesses, neighbourhoods, and coastline beneath Lion’s Head"
+            fill
+            preload
+            sizes="(max-width: 700px) 100vw, (max-width: 1440px) 92vw, 1320px"
+          />
+          <figcaption>
+            <span className="location-dot" /> Cape Town, South Africa
+          </figcaption>
+          <div className="welcome-image__message" aria-hidden="true">
+            Business visibility.
+            <br />
+            Investor discovery.
+          </div>
+          <a
+            className="image-discover"
+            href="#discover"
+            aria-label="View sample business profiles"
+          >
+            <span aria-hidden="true">↓</span>
+          </a>
+        </figure>
+        <div className="welcome-footnote">
+          <span>Visibility for businesses. Discovery for investors.</span>
+          <span>Private beta starts in Nigeria.</span>
         </div>
       </section>
 
-      <section className="atlas-journey" id="how-it-works">
+      <section
+        className="founder-section section-space page-shell"
+        id="for-businesses"
+        aria-labelledby="business-title"
+      >
+        <div className="founder-image">
+          <Image
+            src="/images/lagos-bridge.webp"
+            alt="The Lekki–Ikoyi Link Bridge connecting neighbourhoods in Lagos at sunset"
+            fill
+            sizes="(max-width: 700px) 90vw, 45vw"
+          />
+          <div className="founder-image__caption">
+            <span className="location-dot" /> Lagos, Nigeria
+          </div>
+          <div className="founder-image__note">
+            Show your business.
+            <br />
+            Tell your story.
+          </div>
+        </div>
+        <div className="founder-copy">
+          <p className="section-label">For business owners</p>
+          <h2 id="business-title">
+            Get your business
+            <br />
+            seen by investors.
+          </h2>
+          <p>
+            Create a profile that shows what you do, the team behind it, your
+            progress, and what you’re raising capital for. Give investors a
+            clear place to discover your business and decide whether to connect.
+          </p>
+          <ul>
+            <li>
+              <CheckIcon /> Build a profile investors can discover.
+            </li>
+            <li>
+              <CheckIcon /> Share your progress and fundraising plans.
+            </li>
+            <li>
+              <CheckIcon /> Choose what you share and who you connect with.
+            </li>
+          </ul>
+          <ButtonLink href={ATLAS_APP_PLACEHOLDER}>
+            About listing your business <ArrowIcon />
+          </ButtonLink>
+        </div>
+      </section>
+
+      <section
+        className="discovery-section section-space page-shell"
+        id="discover"
+        aria-labelledby="discovery-title"
+      >
+        <div id="for-investors" className="discovery-heading">
+          <div>
+            <p className="section-label">For investors</p>
+            <h2 id="discovery-title">
+              Discover businesses
+              <br />
+              that fit your focus.
+            </h2>
+          </div>
+          <p>
+            Explore the profiles businesses use to present their work, progress,
+            and capital needs. Filter these sample listings by sector to see how
+            investors discover businesses on Atlas.
+          </p>
+        </div>
+        <DiscoveryExplorer />
+      </section>
+
+      <section
+        className="how-section section-space"
+        id="how-it-works"
+        aria-labelledby="journey-title"
+      >
         <div className="page-shell">
-          <div className="atlas-section-heading">
-            <p className="atlas-section-label">How Atlas works</p>
-            <h2>From a first look<br />to a <em>real conversation.</em></h2>
-            <p>
-              Atlas gives you a focused place to discover businesses, understand what makes them
-              interesting, and take the next step with confidence.
-            </p>
-          </div>
-
-          <ol className="atlas-journey__grid">
-            {journeySteps.map((step) => (
-              <li key={step.number}>
-                <div className="atlas-journey__top"><span>{step.number}</span><i /></div>
-                <p className="atlas-journey__label">{step.label}</p>
-                <h3>{step.title}</h3>
-                <p className="atlas-journey__body">{step.body}</p>
-                <p className="atlas-journey__detail">{step.detail}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="atlas-clarity" id="trust">
-        <div className="page-shell atlas-clarity__grid">
-          <div className="atlas-clarity__copy">
-            <p className="atlas-section-label atlas-section-label--light">Clarity built in</p>
-            <h2>See the story and the details behind it.</h2>
-            <p className="atlas-clarity__lead">
-              Businesses tell their story in their own words. Alongside it, Atlas shows which details
-              were checked, when they were reviewed, and how recently the business confirmed it is raising.
-            </p>
-            <ol className="atlas-clarity__points">
-              {clarityPoints.map((point, index) => (
-                <li key={point.title}>
-                  <span>0{index + 1}</span>
-                  <div><h3>{point.title}</h3><p>{point.body}</p></div>
+          <div className="how-layout">
+            <div className="how-heading">
+              <p className="section-label">How Atlas works</p>
+              <h2 id="journey-title">
+                One marketplace.
+                <br />
+                Two ways to connect.
+              </h2>
+              <p>
+                Businesses make their work visible. Investors discover profiles
+                relevant to their focus. Introduction requests give both sides a
+                way to start a conversation.
+              </p>
+            </div>
+            <ol className="how-steps">
+              {steps.map((step, index) => (
+                <li key={step.title}>
+                  <span className="step-number" aria-hidden="true">
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
                 </li>
               ))}
             </ol>
           </div>
-
-          <div className="profile-guide">
-            <div className="profile-guide__header">
-              <div><p>What you’ll see on Atlas</p><span>A guide to each profile</span></div>
-              <div className="profile-guide__icon" aria-hidden="true"><CheckIcon /></div>
-            </div>
+          <div className="clarity-note" id="trust">
+            <p>Visibility with control.</p>
             <ul>
-              <li><span>Business overview</span><strong>Shared by the business</strong></li>
-              <li><span>Raising status</span><strong>Recently confirmed</strong></li>
-              <li><span>Registration details</span><strong>Check and date shown</strong></li>
-              <li><span>Key numbers</span><strong>Reporting period included</strong></li>
-              <li><span>Introduction preference</span><strong>Clear before you ask</strong></li>
+              <li>
+                <CheckIcon /> Discoverable business profiles
+              </li>
+              <li>
+                <CheckIcon /> Dated, specific checks
+              </li>
+              <li>
+                <CheckIcon /> Contact shared by agreement
+              </li>
             </ul>
-            <p className="profile-guide__note">Clear labels help you decide what to explore next.</p>
           </div>
         </div>
       </section>
 
-      <section className="atlas-audience" id="for-businesses">
-        <div className="page-shell">
-          <div className="atlas-section-heading atlas-section-heading--audience">
-            <p className="atlas-section-label">Built for both sides</p>
-            <h2>One better introduction.<br /><em>Two ways in.</em></h2>
-            <p>
-              Whether you’re looking for your next opportunity or the right people to understand your
-              business, Atlas helps you begin with better context.
-            </p>
-          </div>
-
-          <div className="atlas-audience__grid">
-            <article className="atlas-audience-card atlas-audience-card--investor" id="for-investors">
-              <div className="atlas-audience-card__top"><span>For investors</span><span>01</span></div>
-              <div className="atlas-audience-card__content">
-                <p className="atlas-audience-card__eyebrow">Follow your curiosity</p>
-                <h3>Find businesses that fit how you invest.</h3>
-                <p>
-                  Choose the markets, sectors, stages, and investment ranges you care about. Atlas brings
-                  together the businesses that fit and explains why they appeared.
-                </p>
-                <ul>
-                  <li>Browse current opportunities</li>
-                  <li>Compare the details that matter</li>
-                  <li>Save businesses for another look</li>
-                </ul>
-                <ButtonLink href={ATLAS_APP_PLACEHOLDER} variant="inverse">Start exploring <ArrowIcon /></ButtonLink>
-              </div>
-            </article>
-
-            <article className="atlas-audience-card atlas-audience-card--business">
-              <div className="atlas-audience-card__top"><span>For businesses</span><span>02</span></div>
-              <div className="atlas-audience-card__content">
-                <p className="atlas-audience-card__eyebrow">Make the first look count</p>
-                <h3>Help the right investors understand you sooner.</h3>
-                <p>
-                  Create one clear profile, show what makes your business interesting, and choose how each
-                  new conversation begins.
-                </p>
-                <ul>
-                  <li>Tell your story in one place</li>
-                  <li>Choose what different visitors can see</li>
-                  <li>Review every introduction request</li>
-                </ul>
-                <ButtonLink href={ATLAS_APP_PLACEHOLDER}>Start your profile <ArrowIcon /></ButtonLink>
-              </div>
-            </article>
-          </div>
+      <section
+        className="questions-section section-space page-shell"
+        aria-labelledby="faq-title"
+      >
+        <div className="questions-heading">
+          <p className="section-label">Frequently asked questions</p>
+          <h2 id="faq-title">
+            Questions
+            <br />
+            about Atlas.
+          </h2>
+          <p>Who it’s for, what checks cover, and how access works.</p>
+        </div>
+        <div className="faq-list">
+          {questions.map((question) => (
+            <details key={question.title}>
+              <summary>
+                {question.title}
+                <span aria-hidden="true" className="faq-plus" />
+              </summary>
+              <p>{question.answer}</p>
+            </details>
+          ))}
         </div>
       </section>
 
-      <section className="atlas-closing" id="early-access">
-        <div className="page-shell atlas-closing__grid">
-          <p className="atlas-section-label atlas-section-label--light">Private beta</p>
-          <div>
-            <h2>Good things start with<br /><em>the right introduction.</em></h2>
-            <p>
-              Atlas is preparing its first collection of businesses and investors. We’re starting small so
-              every profile is useful, every detail is clear, and every introduction has a reason behind it.
-            </p>
-            {/* <div className="atlas-closing__actions">
-              <ButtonLink href={ATLAS_APP_PLACEHOLDER} variant="inverse">Explore Atlas <ArrowIcon /></ButtonLink>
-              <ButtonLink href={ATLAS_APP_PLACEHOLDER} variant="secondary">Private beta access</ButtonLink>
-            </div> */}
-          </div>
-          <p className="atlas-closing__note">
-            Atlas gives both sides the context and connection. Every conversation and decision stays in
-            the hands of the people involved.
+      <section
+        className="invitation-section"
+        id="early-access"
+        aria-labelledby="access-title"
+      >
+        <div className="page-shell invitation-layout">
+          <p className="section-label">
+            <span className="status-dot" /> Private beta
           </p>
+          <h2 id="access-title">
+            Launching first
+            <br />
+            in Nigeria.
+          </h2>
+          <div className="invitation-copy">
+            <p className="beta-status">
+              For businesses raising capital and investors.
+            </p>
+            <p>
+              The Nigeria beta will bring business profiles and invited
+              investors onto the marketplace. Listing and registration are not
+              available on this website yet. Explore the preview to see how a
+              business can be presented.
+            </p>
+            <ButtonLink href="#discover">
+              Preview a business listing <ArrowIcon />
+            </ButtonLink>
+          </div>
         </div>
       </section>
     </div>
