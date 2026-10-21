@@ -4,6 +4,8 @@ Independent Next.js marketing site for Atlas. It owns the public brand story, la
 
 Product-entry links intentionally point to the `#early-access` placeholder until the Atlas application URL and access flow are ready.
 
+The landing page includes a filterable discovery preview with fictional business profiles, keyboard-accessible profile dialogs, and native FAQ disclosures. [Design direction](docs/design-direction.md) documents the redesign and asset credits; the [verification record](docs/redesign-verification.md) covers responsive, interaction, and accessibility checks. The [content audit](docs/content-audit.md) records the product sources behind the copy and the Nigeria beta scope. Photography and fonts are hosted locally.
+
 ## Local setup
 
 ```bash

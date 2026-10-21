@@ -16,11 +16,21 @@ export default function ErrorPage({
   return (
     <main className="system-page" id="main-content">
       <section className="system-card" aria-labelledby="route-error-title">
-        <p className="eyebrow"><span /> Small detour</p>
+        <p className="eyebrow">
+          <span /> Page unavailable
+        </p>
         <h1 id="route-error-title">We couldn’t load this page.</h1>
-        <p>Nothing changed on your account. Give it another try.</p>
-        <button className="button button--primary" onClick={reset} type="button">Try again</button>
-        {error.digest ? <p className="correlation">Reference: {error.digest}</p> : null}
+        <p>Please try loading the page again.</p>
+        <button
+          className="button button--primary"
+          onClick={reset}
+          type="button"
+        >
+          Try again
+        </button>
+        {error.digest ? (
+          <p className="correlation">Reference: {error.digest}</p>
+        ) : null}
       </section>
     </main>
   );
